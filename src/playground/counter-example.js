@@ -42,8 +42,9 @@ class Counter extends React.Component {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("app"));
-root.render(templateTwo);
+root.render(<Counter />);
 
+// OLD ONE
 
 // let count = 0;
 // const addOne = () => {
