@@ -85,7 +85,7 @@ const Header = (props) => {
 //   };
 // };
 Header.defaultProps = {
-  title: 'some default',
+  title: 'some default text',
 };
 
 // const Action = (props) => {
