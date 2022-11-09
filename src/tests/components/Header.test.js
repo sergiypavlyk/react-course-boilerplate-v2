@@ -1,9 +1,14 @@
 import React from 'react';
-import ReactShallowRenderer from 'react-test-renderer/shallow';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import Header from '../../components/Header';
 
 test('should render Header correctly', () => {
-  const renderer = new ReactShallowRenderer();
-  renderer.render(<Header />);
-  expect(renderer.getRenderOutput()).toMatchSnapshot();
-});
+  render(
+    <BrowserRouter>
+      <Header />
+    </BrowserRouter>
+  )
+  expect(screen.getByRole('heading').textContent).toBe('Expensify')
+})
+
