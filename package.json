@@ -5,7 +5,6 @@
   "author": "Sergiy Pavlyk",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack --mode production --env production",
     "dev-server": "webpack-dev-server",
@@ -23,7 +22,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^6.7.1",
     "express": "^4.18.2",
-    "live-server": "^1.2.2",
     "mini-css-extract-plugin": "^2.6.1",
     "moment": "^2.29.4",
     "node-sass": "^7.0.3",
@@ -35,15 +33,13 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-shallow-compare": "^1.0.3",
-    "react-test-renderer": "^18.2.0",
     "redux": "^4.2.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",
     "uuid": "^9.0.0",
     "validator": "^13.7.0",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-cli": "^4.10.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -52,7 +48,9 @@
     "babel-jest": "^29.3.1",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
-    "regenerator-runtime": "^0.13.10"
+    "regenerator-runtime": "^0.13.10",
+    "react-test-renderer": "^18.2.0",
+    "webpack-dev-server": "^4.11.1"
   },
   "jest": {
     "testEnvironment": "jsdom"
