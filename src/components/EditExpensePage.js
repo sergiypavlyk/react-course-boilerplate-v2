@@ -1,12 +1,12 @@
 import React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
+import withRouter from './withRouter';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const EditExpensePage = (props) => {
-  const { id } = useParams();
-  console.log("EditExpensePage ~ id", id)
   let navigate = useNavigate();
   return (
     <div>
@@ -29,11 +29,11 @@ const EditExpensePage = (props) => {
   );
 };
 
-const mapStateToProps = (state, props) => {
-  const params = useParams();
-  return {
-    expense: state.expenses.find((expense) => expense.id === params.id)
-  };
-};
+const mapStateToProps = (state, { params: { id } = {} }) => ({
+  expense: state.expenses.find((expense) => expense.id === id),
+});
 
-export default connect(mapStateToProps)(EditExpensePage);
+export default compose(
+  withRouter,              // <-- injects a params prop
+  connect(mapStateToProps) // <-- props.params accessible
+)(EditExpensePage);
