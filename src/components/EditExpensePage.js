@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { editExpense, removeExpense } from '../actions/expenses';
 import withRouter from './withRouter';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const EditExpensePage = (props) => {
   let navigate = useNavigate();
