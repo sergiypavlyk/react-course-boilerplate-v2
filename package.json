@@ -30,6 +30,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-shallow-compare": "^1.0.3",
+    "react-test-renderer": "^18.2.0",
     "redux": "^4.2.0",
     "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",
