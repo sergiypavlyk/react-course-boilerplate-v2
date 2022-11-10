@@ -28,11 +28,20 @@ set(ref(db), {
     city: 'Lviv',
     country: 'Ukraine'
   }
+}).then(() => {
+  console.log('Data is saved!');
+}).catch((e) => {
+  console.log('This failed.', e);
 });
 
-update(ref(db), { 'age': 25 });
-update(ref(db), { 'location/city': 'Chervonohrad' });
+// update(ref(db), { 'age': 25 });
+// update(ref(db), { 'location/city': 'Chervonohrad' });
+
 set(ref(db, 'attributes'), {
   height: '523532',
   weight: '235'
+}).then(() => {
+  console.log('Second set call worked.');
+}).catch((e) => {
+  console.log('Things didnt for the second error', e);
 });
