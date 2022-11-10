@@ -12,7 +12,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack --mode production --env production",
     "dev-server": "webpack-dev-server",
-    "test": "jest",
+    "test": "cross-env NODE_ENV=test jest",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod"
   },
@@ -33,12 +33,14 @@
     "node-sass": "^7.0.3",
     "normalize.css": "^8.0.1",
     "numeral": "^2.0.6",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dates": "^21.8.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
+    "react-scripts": "^5.0.1",
     "react-shallow-compare": "^1.0.3",
     "redux": "^4.2.0",
     "redux-thunk": "2.2.0",
@@ -54,13 +56,20 @@
     "@testing-library/react": "^13.4.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^29.3.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
+    "react-error-overlay": "6.0.9",
     "react-test-renderer": "^18.2.0",
     "regenerator-runtime": "^0.13.10",
     "webpack-dev-server": "^4.11.1"
   },
   "jest": {
     "testEnvironment": "jsdom"
+  },
+  "resolutions": {
+    "//": "See https://github.com/facebook/create-react-app/issues/11773",
+    "react-error-overlay": "6.0.9"
   }
 }
