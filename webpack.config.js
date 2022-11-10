@@ -1,14 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
-const { env } = require('process');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-env.NODE_ENV = env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-if (env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: '.env.test' });
-} else if (env.NODE_ENV === 'development') {
+} else if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({ path: '.env.development' });
 }
 
@@ -48,12 +47,14 @@ module.exports = (env) => {
     plugins: [
       new MiniCssExtractPlugin(),
       new webpack.DefinePlugin({
-        'env.FIREBASE_API_KEY': JSON.stringify(env.FIREBASE_API_KEY),
-        '.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(env.FIREBASE_AUTH_DOMAIN),
-        'env.FIREBASE_DATABASE_URL': JSON.stringify(env.FIREBASE_DATABASE_URL),
-        'env.FIREBASE_PROJECT_ID': JSON.stringify(env.FIREBASE_PROJECT_ID),
-        'env.FIREBASE_STORAGE_BUCKET': JSON.stringify(env.FIREBASE_STORAGE_BUCKET),
-        'env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(env.FIREBASE_MESSAGING_SENDER_ID)
+        'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
+        'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+        'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+        'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+        'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
+        'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
+        'process.env.FIREBASE_APP_ID': JSON.stringify(process.env.FIREBASE_APP_ID),
+        'process.env.FIREBASE_MEASUREMENT_ID': JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID),
       })
     ],
     devtool: isProduction? 'source-map' : 'inline-source-map',
@@ -64,6 +65,5 @@ module.exports = (env) => {
         publicPath: '/dist/'
       }
     },
-    mode: 'development'
   }
 }
