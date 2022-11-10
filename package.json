@@ -5,7 +5,8 @@
   "author": "Sergiy Pavlyk",
   "license": "MIT",
   "engines": {
-    "node": "17.9.1"
+    "node": "17.x",
+    "npm": "8.5.5"
   },
   "scripts": {
     "build:dev": "webpack",
