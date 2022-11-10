@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, update } from "firebase/database";
+import { getDatabase, ref, set, update, remove } from "firebase/database";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,7 +23,12 @@ const db = getDatabase();
 set(ref(db), {
   name: 'Sergiy Pavlyk',
   age: 27,
+  stressLevel: 6,
   isSingle: false,
+  job: {
+    title: 'SE',
+    company: 'Leobit'
+  },
   location: {
     city: 'Lviv',
     country: 'Ukraine'
@@ -34,8 +39,8 @@ set(ref(db), {
   console.log('This failed.', e);
 });
 
-// update(ref(db), { 'age': 25 });
-// update(ref(db), { 'location/city': 'Chervonohrad' });
+update(ref(db), { 'age': 25 });
+update(ref(db), { 'location/city': 'Chervonohrad' });
 
 set(ref(db, 'attributes'), {
   height: '523532',
@@ -44,4 +49,17 @@ set(ref(db, 'attributes'), {
   console.log('Second set call worked.');
 }).catch((e) => {
   console.log('Things didnt for the second error', e);
+});
+
+remove(ref(db, 'attributes'))
+  .then(() => {
+    console.log('Data was removed');
+  }).catch((e) => {
+    console.log('Did not remove data', e);
+  });
+
+update(ref(db), {
+  stressLevel: 9,
+  'job/company': 'Amazon',
+  'location/city': 'Seattle'
 });
