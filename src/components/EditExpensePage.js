@@ -34,6 +34,6 @@ const mapStateToProps = (state, { params: { id } = {} }) => ({
 });
 
 export default compose(
-  withRouter,              // <-- injects a params prop
-  connect(mapStateToProps) // <-- props.params accessible
+  withRouter,
+  connect(mapStateToProps)
 )(EditExpensePage);

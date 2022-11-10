@@ -21,20 +21,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 
-// child_removed
-onValue(ref(db, 'expenses', 'child_removed'), (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-})
+export { push, ref, set, update, remove, onValue, db as default };
 
-// child_changed
-onValue(ref(db, 'expenses', 'child_changed'), (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-})
+// // child_removed
+// onValue(ref(db, 'expenses', 'child_removed'), (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
 
-// child_added
-onValue(ref(db, 'expenses', 'child_added'), (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-})
+// // child_changed
+// onValue(ref(db, 'expenses', 'child_changed'), (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
+
+// // child_added
+// onValue(ref(db, 'expenses', 'child_added'), (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// })
 
 // database.ref('expenses')
 //   .once('value')
@@ -64,12 +66,12 @@ onValue(ref(db, 'expenses', 'child_added'), (snapshot) => {
 //   console.log(expenses);
 // });
 
-push(ref(db, 'expenses'), {
-  description: 'Rent',
-  note: '',
-  amount: 109500,
-  createdAt: 976123498763
-});
+// push(ref(db, 'expenses'), {
+//   description: 'Rent',
+//   note: '',
+//   amount: 109500,
+//   createdAt: 976123498763
+// });
 
 
 // database.ref('notes/-Krll52aVDQ3X6dOtmS7').remove();
