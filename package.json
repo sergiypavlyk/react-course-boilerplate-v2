@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Sergiy Pavlyk",
   "license": "MIT",
+  "engines": {
+    "node": "17.9.1"
+  },
   "scripts": {
     "build:dev": "webpack",
     "build:prod": "webpack --mode production --env production",
