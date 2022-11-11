@@ -1,22 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import Header from '../components/Header';
 
-export const PrivateRoute = ({
+export const PublicRoute = ({
   isAuthenticated,
   component
 }) => (
   isAuthenticated ? (
-    <div>
-      <Header />
-      <div>{component}</div>
-    </div>
-  ) : <Navigate to="/" />
+    <Navigate to="/dashboard" />
+  ) : <div>{component}</div>
 );
 
 const mapStateToProps = (state) => ({
   isAuthenticated: !!state.auth.uid
 });
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(PublicRoute);
