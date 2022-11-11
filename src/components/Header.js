@@ -10,7 +10,10 @@ export const Header = ({ startLogout }) => (
     <NavLink to="/create" className={({ isActive }) => isActive ? 'is-active' : ''}>Create Expanse</NavLink>
     <NavLink to="/edit" className={({ isActive }) => isActive ? 'is-active' : ''}>Edit Expanse</NavLink>
     <NavLink to="/help" className={({ isActive }) => isActive ? 'is-active' : ''}>Help</NavLink>
-    <button onClick={startLogout}>Logout</button>  </header>
+    <button onClick={() => {
+      startLogout();
+      location.reload();
+    }}>Logout</button>  </header>
 );
 
 const mapDispatchToProps = (dispatch) => ({
