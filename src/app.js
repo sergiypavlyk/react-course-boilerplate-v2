@@ -10,6 +10,7 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import './firebase/firebase';
 import './playground/promises';
+import { getAuth } from "firebase/auth";
 
 const store = configureStore();
 
@@ -23,3 +24,8 @@ const root = ReactDOMClient.createRoot(document.getElementById("app"));
 root.render(<p>Loading...</p>);
 
 store.dispatch(startSetExpenses()).then(() => root.render(jsx));
+
+getAuth().onAuthStateChanged((user) => {
+  if (user) console.log('log in')
+  else console.log('log out')
+});

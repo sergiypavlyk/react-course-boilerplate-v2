@@ -30,12 +30,6 @@ const book = {
 const { name: publisherName = 'Self' } = book.publisher;
 console.log(publisherName);
 
-// array destructuring
-
-// const address = ['1213 address', 'NY', 'A', '1314'];
-// const [, symbol, state = 'New York'] = address;
-// console.log(`You are in ${symbol} ${state}.`);
-
 const item = ['Coffee (iced)', '$3.00', '$3.50', '$3.75'];
 const [itemName, , mediumPrice] = item;
 
