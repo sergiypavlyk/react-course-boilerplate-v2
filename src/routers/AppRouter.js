@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { createBrowserHistory } from "history";
-import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
-import AddExpensePage from '../components/AddExpensePage';
-import EditExpensePage from '../components/EditExpensePage';
+import DashboardPage from '../components/DashboardPage';
 import NotFoundPage from '../components/NotFoundPage';
 import LoginPage from '../components/LoginPage';
 import PrivateRoute from './PrivateRoute';
@@ -28,12 +26,10 @@ const AppRouter = () => (
       <Route path="/dashboard"
         element={
           <PrivateRoute
-            component={<ExpenseDashboardPage />}
+            component={<DashboardPage />}
           />
         }
       />
-      <Route path="/create" element={<PrivateRoute component={<AddExpensePage />} />} />
-      <Route path="/edit/:id" element={<PrivateRoute component={<EditExpensePage />} />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </Router>
