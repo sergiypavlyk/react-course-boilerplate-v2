@@ -10,13 +10,17 @@ const ExpenseList = (props) => (
       <div className="show-for-desktop">Expense</div>
       <div className="show-for-desktop">Amount</div>
     </div>
-    {props.expenses.length === 0 ? (
-        <p>No expenses</p>
+    <div className='list-body'>
+      {props.expenses.length === 0 ? (
+        <div className='list-item list-item--message'>
+          <p>No expenses</p>
+        </div>
       ) : (
         props.expenses.map((expense) => {
           return <ExpenseListItem key={expense.description} {...expense} />;
         })
       )}
+    </div>
   </div>
 );
 
